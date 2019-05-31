@@ -58,6 +58,7 @@ class CordovaHttpResponse {
 
     if (this.hasFailed) {
       json.put("error", this.error);
+      json.put("headers",new JSONObject(getFilteredHeaders()));
     } else if (this.isFileOperation) {
       json.put("headers", new JSONObject(getFilteredHeaders()));
       json.put("file", this.fileEntry);
